@@ -1,0 +1,17 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<label>Search for a Abbrevation:</label>
+
+<!-- Search form -->
+<input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchTerm" (ngModelChange)="setFilteredItems()" [ngModelOptions]="{debounce: 500}" aria-label="Search">
+
+<ul id="grouplist" class="list-group">
+  <li class="list-group-item" [ngClass]="{'active': selectedItem == item}" (click)="listClick($event, item)" *ngFor="let item of abbrevationsList">
+    {{ item.expanded }}
+  </li>
+</ul>
+                            
